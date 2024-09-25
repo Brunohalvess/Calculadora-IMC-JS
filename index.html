@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>.: Calculadora IMC :.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="titulo">
+      <h1 class="text-center">Calculadora IMC - Corporal</h1>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <h3>Resultado </h3>
+        <p><strong>Abaixo de 18.5 -></strong> Voce esta muito magro!</p>
+        <p><strong>Entre 18.5 e 26.0 -> </strong> Seu peso esta ideal!</p>
+        <p><strong>Acima de 26 -></strong> Voce está acima do peso!</p>
+      </div>
+
+
+      <div class="col-4">
+        <form>
+          <label for="">Informe seu Peso:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">( Kg )</span>
+            </div>
+            <input type="number" value="" class="form-control" id="peso" maxlength="3" width="20" autofocus required>
+          </div>
+          <p></p>
+          <label for="">Digite sua Altura:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">( Mts ) </span>
+            </div>
+            <input type="number" class="form-control" id="altura" maxlength="4" required>
+          </div>
+          <small id="passwordHelpBlock" class="form-text text-muted">Ex. 1.80 Apenas numero e ponto
+          </small>
+          <p></p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-success" onclick="calcular()"> Calcular IMC </button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger" onclick="limpar()"> Limpar </button>
+          </div>
+          <p></p>
+          <div class="alert alert-light">
+            <span id="resultado"> </span>
+          </div>
+          <p></p>
+          <div class="alert alert-light">
+            <span id="alerta"> </span>
+          </div>
+      </div>
+      </form>
+      <div class="Col-4"></div>
+    </div>
+    <footer>
+      <p class="text-center">Desenvolvido apenas para fins didáticos<br>
+        ©️ 2024 - Todos os Direitos Reservados</p>
+    </footer>
+  </div>
+</body>
+
+<script type="text/javascript">
+
+  function calcular() {
+
+    var peso = parseFloat(document.getElementById("peso").value);
+    var altura = parseFloat(document.getElementById("altura").value);
+    var resultado = peso / altura / altura;
+    var total = resultado.toFixed(2);
+
+    if (total <= 18.5) {
+      msg = "Você esta ABAIXO do seu peso ideal";
+    }
+    else if (total >= 26.5) {
+      msg = "Você esta ACIMA do seu peso ideal";
+    }
+    else {
+      msg = "Você esta como seu peso IDEAL";
+    }
+
+    var total = document.getElementById("resultado").innerHTML = " Seu IMC é : " + total;
+    document.getElementById("alerta").innerHTML = msg;
+
+  }
+  function limpar() {
+
+    setTimeout(function () {
+      window.location.reload(1);
+    }, 100);
+  }
+
+
+
+
+</script>
+
+</html>
